@@ -1,23 +1,74 @@
 import logo from './logo.svg';
 import './App.css';
+import Folder from './components/Folder';
 
 function App() {
+
+  // From filesystem
+  const folderData = {
+    name: 'foldercito',
+    type: 'dir',
+    content: [
+      {name: 'index.ts', type: 'file'},
+      {name: 'test.sh', type: 'file'},
+      {name: 'hola.go', type: 'file'},
+      {
+        name: 'tests',
+        type: 'dir',
+        content: [
+          {name: 'index.ts', type: 'file'},
+          {name: 'test.sh', type: 'file'},
+          {name: 'hola.go', type: 'file'},
+          {
+            name: 'tests',
+            type: 'dir',
+            content: [
+              {
+                name: 'foldercito',
+                type: 'dir',
+                content: [
+                  {name: 'index.ts', type: 'file'},
+                  {name: 'test.sh', type: 'file'},
+                  {name: 'hola.go', type: 'file'},
+                  {
+                    name: 'tests',
+                    type: 'dir',
+                    content: [
+                      {name: 'index.ts', type: 'file'},
+                      {name: 'test.sh', type: 'file'},
+                      {name: 'hola.go', type: 'file'},
+                      {
+                        name: 'tests',
+                        type: 'dir',
+                        content: [
+                          {name: 'index.ts', type: 'file'},
+                          {name: 'test.sh', type: 'file'},
+                          {name: 'hola.go', type: 'file'},
+                          {name: 'index.ts', type: 'file'},
+                          {name: 'test.sh', type: 'file'},
+                          {name: 'hola.go', type: 'file'},
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {name: 'index.ts', type: 'file'},
+              {name: 'test.sh', type: 'file'},
+              {name: 'hola.go', type: 'file'},
+              {name: 'index.ts', type: 'file'},
+              {name: 'test.sh', type: 'file'},
+              {name: 'hola.go', type: 'file'},
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Folder folderData={folderData}/>
     </div>
   );
 }
